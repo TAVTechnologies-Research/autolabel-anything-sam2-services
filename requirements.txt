@@ -1,0 +1,13 @@
+numpy<2.0.0,>=1.21.0
+fastapi[all]==0.109.0
+uvicorn==0.30.5
+pydantic==2.8.2
+pydantic-settings==2.4.0
+SQLAlchemy==2.0.32
+psycopg2-binary==2.9.9
+opencv-python-headless==4.10.0.84
+redis==5.0.8
+nvidia-ml-py==12.560.30
+aiofiles==24.1.0
+setuptools==69.5.1
+loguru==0.7.2
