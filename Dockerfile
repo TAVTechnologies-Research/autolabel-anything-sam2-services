@@ -3,8 +3,6 @@ FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-devel
 LABEL authors="ismailalpaydemir"
 
 ARG TORCH_CUDA_ARCH_LIST="Ada"
-ARG SAM2_PATH="/data/Autolabeling/segment-anything-2"
-WORKDIR ${SAM2_PATH}
 
 WORKDIR /app
 COPY . /app
@@ -36,7 +34,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install pip requirements
 #COPY requirements.txt .
 RUN python -m pip install -r requirements.txt
-RUN SAM2_BUILD_ALLOW_ERRORS=0 TORCH_CUDA_ARCH_LIST=${TORCH_CUDA_ARCH_LIST}  pip install -v -e  meta-segment-anything-2/
+RUN SAM2_BUILD_ALLOW_ERRORS=0 TORCH_CUDA_ARCH_LIST=${TORCH_CUDA_ARCH_LIST}  pip install -v -e  segment-anything-2/
 
 
 WORKDIR /app
