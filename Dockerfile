@@ -36,9 +36,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN python -m pip install -r requirements.txt
 RUN SAM2_BUILD_ALLOW_ERRORS=0 TORCH_CUDA_ARCH_LIST=${TORCH_CUDA_ARCH_LIST}  pip install -v -e  segment-anything-2/
 
-
-WORKDIR /app
-COPY . /app
+# run model download script
+RUN bash ./segment-anything-2/checkpoints/download_ckpts.sh
 
 CMD ["python", "main.py", "--test", "0"]
 #ENTRYPOINT ["/bin/bash"]
