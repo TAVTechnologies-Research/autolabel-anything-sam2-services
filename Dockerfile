@@ -38,6 +38,7 @@ RUN SAM2_BUILD_ALLOW_ERRORS=0 TORCH_CUDA_ARCH_LIST=${TORCH_CUDA_ARCH_LIST}  pip 
 
 # run model download script
 RUN bash ./segment-anything-2/checkpoints/download_ckpts.sh
+RUN mv *.pt ./segment-anything-2/checkpoints/
 
 CMD ["python", "main.py", "--test", "0"]
 #ENTRYPOINT ["/bin/bash"]
